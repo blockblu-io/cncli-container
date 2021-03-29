@@ -16,6 +16,13 @@ The resulting container images are around 110 MB and based on Ubuntu 20.04 LTS. 
 docker run adalove/cncli:<cncli-version>
 ```
 
+### Examples
+#### Sending a Ping
+
+```
+docker run adalove/cncli ping --host lin.relay.staking.outofbits.com --port 3333
+```
+
 ## Maintainer
 
 * Kevin Haller - [kevin.haller@outofbits.com](mailto:kevin.haller@outofbits.com)
