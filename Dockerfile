@@ -30,11 +30,16 @@ RUN git clone --recurse-submodules https://github.com/AndrewWestberg/cncli.git c
 # -----------------------------------------------------------------------
 FROM adalove/ubuntu:20.04
 
+RUN groupadd -r lovelace --gid 1402 && \
+    useradd --no-log-init --uid 1402 -r -g lovelace lovelace
+
 COPY --from=compiler /binaries/cncli /usr/local/bin/cncli
 
 # Documentation
 LABEL maintainer="Kevin Haller <keivn.haller@outofbits.com>"
 LABEL version="${CNCLI_VERSION}"
 LABEL description="A community-based cardano-node CLI tool. It's a collection of utilities to enhance and extend beyond those available with the cardano-cli."
+
+USER lovelace
 
 ENTRYPOINT [ "cncli" ]
