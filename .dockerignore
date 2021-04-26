@@ -1,4 +1,4 @@
 Dockerfile
 README.md
 LICENSE
-build.sh
+*.sh
