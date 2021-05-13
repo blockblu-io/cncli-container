@@ -1,6 +1,6 @@
 # Compiler Image
 # ------------------------------------------------------------------------
-FROM adalove/ubuntu:20.04-rust1.51.0 AS compiler
+FROM adalove/ubuntu:20.04-rust AS compiler
 
 ARG CNCLI_VERSION
 
