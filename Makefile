@@ -27,3 +27,5 @@ manifest-latest:
 			"adalove/cncli:${CNCLI_VERSION}_amd64" \
 			"adalove/cncli:${CNCLI_VERSION}_arm64"
 	docker manifest push --purge "adalove/cncli"
+
+all: amd64 arm64 manifest
