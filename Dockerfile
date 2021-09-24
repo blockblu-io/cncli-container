@@ -1,6 +1,6 @@
 # Compiler Image
 # ------------------------------------------------------------------------
-FROM adalove/ubuntu:20.04-rust AS compiler
+FROM blockblu/ubuntu:20.04-rust AS compiler
 
 ARG CNCLI_VERSION
 
@@ -28,7 +28,7 @@ RUN git clone --recurse-submodules https://github.com/AndrewWestberg/cncli.git c
 
 # Main Image
 # -----------------------------------------------------------------------
-FROM adalove/ubuntu:20.04
+FROM blockblu/ubuntu:20.04
 
 RUN groupadd -r lovelace --gid 1402 && \
     useradd --no-log-init --uid 1402 -r -g lovelace lovelace
@@ -36,7 +36,7 @@ RUN groupadd -r lovelace --gid 1402 && \
 USER lovelace
 
 # Documentation
-LABEL maintainer="Kevin Haller <keivn.haller@outofbits.com>"
+LABEL maintainer="Kevin Haller <keivn.haller@blockblu.io>"
 LABEL version="${CNCLI_VERSION}"
 LABEL description="A community-based cardano-node CLI tool. It's a collection of utilities to enhance and extend beyond those available with the cardano-cli."
 
