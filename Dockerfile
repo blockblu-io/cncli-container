@@ -6,20 +6,20 @@ ARG CNCLI_VERSION
 
 # install dependencies
 RUN apt-get update && \
-	apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends \
         git \
- 		libffi-dev \
-		libgmp-dev \
-		libssl-dev \
-		libsystemd-dev \
-		libtinfo-dev \
-		zlib1g-dev && \
-	rm -rf /var/lib/apt/lists/*
+        libffi-dev \
+        libgmp-dev \
+        libssl-dev \
+        libsystemd-dev \
+        libtinfo-dev \
+        zlib1g-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 # compile the Rust code
 WORKDIR /
 RUN git clone --recurse-submodules https://github.com/AndrewWestberg/cncli.git cncli && \
-	cd cncli && \
+    cd cncli && \
     git fetch --all --tags && \
     git checkout tags/v$CNCLI_VERSION --quiet && \
     mkdir -p /binaries && \
